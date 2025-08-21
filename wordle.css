@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    text-align: center;
+
+}
+
+hr   {
+    width: 500px;
+    margin: 20px auto;
+    border: 1px solid #000000;
+
+}
+
+#title {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #000000;
+    
+}
+
+#board {
+    width: 500px;
+    height: 500px;
+    background-color: #ffffff;
+    margin: 20px auto;
+}
