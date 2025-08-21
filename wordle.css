@@ -24,4 +24,41 @@ hr   {
     height: 500px;
     background-color: #ffffff;
     margin: 20px auto;
+    margin-top: 2px;
+    flex-wrap: wrap;
 }
+
+.tile {
+    /* Box */
+    width: 60px;
+    height: 60px;
+    border: 2px solid lightgray;
+    margin: 2.5px;
+
+    /*Text */
+    color: #000000;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.letter_correct {
+    background-color: #6aaa64;
+    font-color: #ffffff;
+    border-color: white;
+}
+
+.letter_exists {
+    background-color: #c9b458;
+    color: #ffffff;
+    border-color: white;
+}
+
+.letter_absent {
+    background-color: #787c7e;
+    color: #ffffff;
+    border-color: white;
+}
+
