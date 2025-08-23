@@ -5,7 +5,7 @@ let row = 0;
 let column = 0;
 
 let gameOver = false; 
-let word = "Squid"; //my test word 
+let word = "HELLO"; //my test word 
 
 
 window.onload = function(){
@@ -30,7 +30,7 @@ function initialize() {
 
     //User Input (Listening)
     document.addEventListener("keyup", (e) => {
-        if (gameOver) return;
+        
 
         if ("KeyA" <= e.code && e.code <= "KeyZ") {
                 if (column < width) {
@@ -53,42 +53,46 @@ function initialize() {
         }
 
         else if (e.code == "Enter"){
-            
-            update();
-            column = 0;
-            row += 1;
-            
+            if (column == width) {
+                update();
+                column = 0;
+                row += 1;
+            }
         }
 
-        if (!gameOver && row == height){
-            gameOver = true;
-            document.getElementById("answer").innerText = "The word is: " + word; 
+        if (row == height){
+            gameIsOver();
         }
     });
 
 
+    function gameIsOver(){
+        document.getElementById("answer").innerText = "The word is: " + word; 
+        return;
+    }
+
 
     function update(){
         let correct = 0;
-        for (let c=0; c < width; c++){
-            let currentTile = document.getElementById(row.toString() + "-" + column.toString());
+        for (let col=0; col < width; col++){
+            let currentTile = document.getElementById(row.toString() + "-" + col.toString());
             let letter = currentTile.innerText;
 
-            if (letter == word[c]){
-                tile.classList.add("letter_correct");
+            if (letter == word[col]){
+                currentTile.classList.add("letter_correct");
                 correct += 1;
             }
 
             else if (word.includes(letter)){
-                tile.classList.add("letter_exists");
+                currentTile.classList.add("letter_exists");
             }
 
             else {
-                tile.classList.add("letter_absent");
+                currentTile.classList.add("letter_absent");
             }
 
             if (correct == width){
-                gameOver = true;
+                gameIsOver()
 
             }
         }
