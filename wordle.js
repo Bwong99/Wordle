@@ -1,5 +1,5 @@
-let height = 6; //number of guesses
-let width = 5; //length of word 
+let height = 6; 
+let width = 5; 
 
 let row = 0; 
 let column = 0;
@@ -19,12 +19,27 @@ function initialize() {
     // Board set-up
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
-            let tile = document.createElement("span");
+            let tile = document.createElement("span"); //each tile is a new span
             tile.id = i.toString() + "-" + j.toString(); //assigning tile ids as so: <row>-<column>
             tile.classList.add("tile");
-            tile.innerText = "P";
-            document.getElementById("board").appendChild(tile);
+            tile.innerText = "";
+            document.getElementById("board").appendChild(tile); //board is a <div> not a class
         }
     }
-
 }
+
+    //User Input (Listening)
+    document.addEventListener("keyup", (e) => {
+        if (gameOver) return;
+
+        if ("KeyA" <= e.code && e.code <= "KeyZ") {
+                if (column < width) {
+                    let currentTile = document.getElementById(row.toString() + "-" + column.toString());
+
+                    if (currentTile.innerText == "") {
+                        currentTile.innerText = e.code[3];
+                        column += 1;
+                    }
+                }
+            }
+    });
