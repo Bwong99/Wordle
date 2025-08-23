@@ -51,4 +51,19 @@ function initialize() {
                 
             }
         }
+
+        else if (e.code == "Enter") {
+            update();
+            column = 0;
+            row += 1;
+        }
+
+        if (!gameOver && row == height){
+            gameOver = true;
+            document.getElementById("answer").innerText = word; 
+        }
     });
+
+
+
+    update();
