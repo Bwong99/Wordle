@@ -44,10 +44,11 @@ function initialize() {
             }
 
         else if (e.code == "Backspace"){
-            if (column < width){
+            if (0 < column && column < width){
                 let currentTile = document.getElementById(row.toString() + "-" + (column - 1).toString());
-                currentTile.innerText = ""
+                currentTile.innerText = "";
                 column -= 1;
+                
             }
         }
     });
