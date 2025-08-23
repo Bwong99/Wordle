@@ -44,7 +44,7 @@ function initialize() {
             }
 
         else if (e.code == "Backspace"){
-            if (0 < column && column < width){
+            if (0 < column ){
                 let currentTile = document.getElementById(row.toString() + "-" + (column - 1).toString());
                 currentTile.innerText = "";
                 column -= 1;
@@ -52,18 +52,45 @@ function initialize() {
             }
         }
 
-        else if (e.code == "Enter") {
+        else if (e.code == "Enter"){
+            
             update();
             column = 0;
             row += 1;
+            
         }
 
         if (!gameOver && row == height){
             gameOver = true;
-            document.getElementById("answer").innerText = word; 
+            document.getElementById("answer").innerText = "The word is: " + word; 
         }
     });
 
 
 
-    update();
+    function update(){
+        let correct = 0;
+        for (let c=0; c < width; c++){
+            let currentTile = document.getElementById(row.toString() + "-" + column.toString());
+            let letter = currentTile.innerText;
+
+            if (letter == word[c]){
+                tile.classList.add("letter_correct");
+                correct += 1;
+            }
+
+            else if (word.includes(letter)){
+                tile.classList.add("letter_exists");
+            }
+
+            else {
+                tile.classList.add("letter_absent");
+            }
+
+            if (correct == width){
+                gameOver = true;
+
+            }
+        }
+    }
+        

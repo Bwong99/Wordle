@@ -47,19 +47,19 @@ hr   {
 
 .letter_correct {
     background-color: #6aaa64;
-    font-color: #ffffff;
+    color: #000000;
     border-color: white;
 }
 
 .letter_exists {
     background-color: #c9b458;
-    color: #ffffff;
+    color: #000000;
     border-color: white;
 }
 
 .letter_absent {
     background-color: #787c7e;
-    color: #ffffff;
+    color: #000000;
     border-color: white;
 }
 
