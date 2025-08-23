@@ -30,7 +30,7 @@ function initialize() {
 
     //User Input (Listening)
     document.addEventListener("keyup", (e) => {
-        
+        if (gameOver) return;
 
         if ("KeyA" <= e.code && e.code <= "KeyZ") {
                 if (column < width) {
@@ -68,6 +68,7 @@ function initialize() {
 
     function gameIsOver(){
         document.getElementById("answer").innerText = "The word is: " + word; 
+        gameOver = true;
         return;
     }
 
