@@ -28,6 +28,14 @@ function initialize() {
     }
 }
 
+    //Restart (Spacebar)
+    document.addEventListener("keyup", (e) => {
+        if (e.code == "Space") {
+            location.reload();
+        }
+    });
+
+
     //User Input (Listening)
     document.addEventListener("keyup", (e) => {
         if (gameOver) return;
@@ -67,7 +75,7 @@ function initialize() {
 
 
     function gameIsOver(){
-        document.getElementById("answer").innerText = "The word is: " + word; 
+        document.getElementById("answer").innerText = "The word is: " + word + "! Press Spacebar to Restart"; 
         gameOver = true;
         return;
     }
