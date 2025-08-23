@@ -42,4 +42,12 @@ function initialize() {
                     }
                 }
             }
+
+        else if (e.code == "Backspace"){
+            if (column < width){
+                let currentTile = document.getElementById(row.toString() + "-" + (column - 1).toString());
+                currentTile.innerText = ""
+                column -= 1;
+            }
+        }
     });
